@@ -1,0 +1,23 @@
+{
+    function consRepChar(str){
+      let charAppearedLong='',longest=0,count=1;
+
+      for(var i=1;i<str.length;i++) {
+
+        if(str[i-1] === str[i]) {
+          count++;
+        } else {      
+          count = 1;
+        }
+      }
+      if(count>longest) {
+            longest = count;
+            charAppearedLong = str[i-1];
+          }
+      console.log(charAppearedLong);
+      console.log(longest);
+    }
+
+    let s = "aaaaaaaabbbbbbbbbbbbcccccccccccccuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu";
+    consRepChar(s);
+}
