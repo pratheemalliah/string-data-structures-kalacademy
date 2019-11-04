@@ -1,0 +1,23 @@
+{
+    function checkRotatedStr(str1,str2) {
+        let len = str2.length;
+        let temp = str2;
+        for(let i=1;i<=2;i++) {
+            temp = temp[len-1] + temp.substring(0,len-1);
+            if(str1===temp) {
+                return "String equals in clockwise";
+            }
+        }
+        temp = str2;
+         for(let i=1;i<=2;i++) {
+             temp = temp.substring(1,len) + temp[0];
+            if(str1===temp) {
+                return "String equals in anti clockwise";
+            }
+        }
+        return "String not equals in any rotation";
+
+    }
+
+    checkRotatedStr('amazon','onamaz')
+}

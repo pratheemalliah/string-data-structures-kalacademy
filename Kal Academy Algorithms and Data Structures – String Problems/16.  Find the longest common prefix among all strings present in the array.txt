@@ -1,0 +1,35 @@
+{
+   /* function findSmallestStr(strArr) {
+        let len = strArr.length, smallest, smallestLength = strArr[0].length;
+
+        for(let i=1;i<len;i++) {
+            if(strArr[i].length<=smallestLength) {
+                smallestLength = strArr[i].length;
+                smallest = strArr[i];
+
+            }
+        }
+        return smallest;
+    }*/
+
+    function findLongestPattern(strArr) {
+        if(strArr.length == 0) return "Array is empty!"
+        let p,len = strArr.length, pattern='', shortStr = strArr[0];//shortStr = findSmallestStr(strArr);
+        for(let j=0;j<=shortStr.length;j++) {
+            if(p) {pattern += p;}
+            for(let i=1;i<len;i++) {
+                if(strArr[i][j] == shortStr[j]) {
+                    p = shortStr[j];
+                } else {
+                    if(pattern) return pattern;
+                    return "No Pattern Found!"
+                }
+            }
+            i=0;
+        }
+        if(pattern.length) return pattern;
+        return "No Pattern Found!"
+    }
+
+     findLongestPattern(['ass','asspqt','asspqp','asspql','asspqc']);
+}

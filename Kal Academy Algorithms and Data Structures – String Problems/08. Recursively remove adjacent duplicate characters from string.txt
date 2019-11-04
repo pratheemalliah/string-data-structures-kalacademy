@@ -1,0 +1,26 @@
+{
+    function shrinkWithoutDup(s) {
+        let i=0;
+        let dupFound = false, res = '';
+        while(s[i]) {
+            if(s[i] !== s[i+1]) {
+               res+=s[i];
+               i++;
+            }
+
+            if(s[i+1] && s[i]==s[i+1]) {
+                 while(s[i+1] && s[i]==s[i+1]) {
+                     dupFound = true;
+                     i++;
+                 }
+                 i++;
+            } 
+        }
+        if(!dupFound) {
+            return res;
+        } 
+        return shrinkWithoutDup(res);
+    }
+
+    shrinkWithoutDup('vaczzcycccv');
+}

@@ -1,0 +1,31 @@
+{
+    function matrix(m) {
+       let x=0,y=0,zeroExist = false,row = m[0].length, col = m.length;
+
+       for(let i=0;i<row;i++) {
+           for(let j=0;j<col;j++) {
+               if(m[i][j] === 0) {
+                 zeroExist = true;
+                 x = i,y =j;
+
+               }
+               if(zeroExist) {
+                   m[i][j] = 0;
+               }
+           }
+       }
+       if(zeroExist) {
+           for(let i=0;i<=x;i++) {
+               for(let j=0;j<=y;j++) {
+                  m[i][j]=0;
+               }
+           }
+       }
+       return m;
+    }
+   matrix([
+       [1,7,9],
+       [2,3,1],
+       [3,5,1]
+    ])
+}

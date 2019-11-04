@@ -1,0 +1,29 @@
+{
+    function simplifyStr(str) {
+        let len = str.length;
+        str = str.split("");
+        for(let start=0,end=0;end<len;start++,end++) {
+            if(str[end-2]== "." && str[end-1]==" " && str[end]==" ") {
+                let count = 0;
+                while(str[end]==" ") {
+                    end++;
+                    count++;
+                }
+                let x = start,y = end;
+                while(y < len) {
+                    str[x] = str[y];
+                    x++;
+                    y++;
+                     
+                }
+                len = len-count;
+                start = start+count;
+                str = str.slice(0,-count);
+
+            }
+        }
+        return str.join("").trim();
+    }
+
+    simplifyStr("We are good.  Expect your presence.  Come soon.");
+}

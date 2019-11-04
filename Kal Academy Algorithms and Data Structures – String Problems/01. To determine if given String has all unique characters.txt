@@ -1,0 +1,21 @@
+{
+    function uniqueChars(str) {
+       let len = str.length, strObj = {};
+
+       for(let i=0;i<len;i++) {
+           if(strObj[str[i]]) {
+               strObj[str[i]] -= 1;
+               if(strObj[str[i]]<=0) {
+                   return "String has duplicates";
+               }
+           } else {
+               strObj[str[i]] = 1;
+           }
+           
+       }
+return "String has no duplicates"
+
+    }
+
+    uniqueChars("abvdefmkd")
+}

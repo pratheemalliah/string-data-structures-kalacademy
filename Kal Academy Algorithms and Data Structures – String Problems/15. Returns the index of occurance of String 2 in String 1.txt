@@ -1,0 +1,20 @@
+{
+    function occurance(str1,str2) {
+        for(let i=0;i<str1.length;i++) {
+            let index=i;
+            if(str1[i] == str2[0]) {
+                let start = i, end = 0; 
+                while(str1[start] == str2[end] && end<str2.length) {
+                    end++;
+                    start++;
+                }
+                if(end==str2.length) {
+                    return index;
+                }
+            }
+        }
+        return "No occurance";
+    }
+
+    occurance("welfdsaome","me");
+}

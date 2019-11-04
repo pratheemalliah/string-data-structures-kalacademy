@@ -1,0 +1,17 @@
+{
+    function isPalindrome(n,result=0) {
+        if(n==0) return result;
+    
+        result = result*10 + n%10;
+        n=Math.floor(n/10);
+        return isPalindrome(n,result);
+
+    }
+    let n = 124521;
+    if (n===isPalindrome(n)) {
+         console.log("Given number is palindrome");
+    } else {
+        console.log("Given number is not palindrome");
+    }
+    
+}

@@ -1,0 +1,56 @@
+{
+    function findLongSubSeq(str1, str2) {
+        let len1 = str1.length, len2 = str2.length;
+        let LCS = Array(len1 + 1).fill(0).map(() = > Array(len2 + 1).fill(0));;
+        let solution = Array(len1 + 1).fill(0).map(() = > Array(len2 + 1).fill(0));;
+
+
+        for (let i = 0; i <= len2; i++) {
+            LCS[0][i] = 0;
+        }
+        for (let i = 0; i <= len1; i++) {
+            LCS[i][0] = 0;
+        }
+
+
+        for (var i = 1; i <= len1; i++) {
+            for (var j = 1; j <= len2; j++) {
+                if (str1[i - 1] == str2[j - 1]) {
+                    LCS[i][j] = 1 + LCS[i - 1][j - 1];
+                    solution[i][j] = "diag";
+                } else {
+                    LCS[i][j] = Math.max(LCS[i - 1][j], LCS[i][j - 1]);
+                    if (LCS[i][j] == LCS[i - 1][j]) {
+                        solution[i][j] = "top";
+                    } else {
+                        solution[i][j] = "left";
+                    }
+                }
+            }
+        }
+
+
+        let answer = '', a = len1, b = len2;
+        let x = solution[a][b];
+        while (x != 0) {
+            if (solution[a][b] == "diag") {
+                answer = str1[a - 1] + answer;
+                a--;
+                b--;
+            } else if (solution[a][b] == "left") {
+                b--;
+            } else if (solution[a][b] == "top") {
+                a--;
+            }
+            x = solution[a][b];
+        }
+
+        console.log(answer);
+        console.log(LCS[i - 1][j - 1]);
+        console.log(solution);
+        console.log(LCS);
+
+    }
+
+    findLongSubSeq("ACBDEA", "ABCDA")
+}

@@ -1,0 +1,29 @@
+{
+    function compare(str) {
+        if(str.length === 0 ) {
+            return 'String is empty';
+        }
+
+        let output='', comp=[],len = str.length;
+        
+        for(let i=0;i<len;i++) {
+            if(comp[str[i]]) {
+                comp[str[i]] += 1; 
+                
+            } else { 
+                if(i>0) {
+                    output += str[i-1]+comp[str[i-1]];
+                    delete comp[str[i-1]];
+                    
+                }
+                comp[str[i]] = 1;
+            }
+        }
+        if(str.length<=output.length) {
+            return str;
+        }
+        return output+str[len-1]+comp[str[len-1]];
+        //return output;
+    }
+    compare("aabbccccbbbaabbb")
+}

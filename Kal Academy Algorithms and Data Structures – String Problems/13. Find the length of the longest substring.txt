@@ -1,0 +1,64 @@
+/*
+
+{
+    function findLongSubstr(str) {
+        let long=0, start=0,result=[],compare = {};
+
+        for(var i=0;i<str.length-1;i++) {
+            if(compare[str[i]]) {               
+               result.push(str.slice(start,i));
+               compare = {};
+               compare[str[i]] = 1;
+               start = i;
+            }else{
+                compare[str[i]] = 1;
+            } 
+        }
+
+        if(compare[str[str.length-1]]) {               
+            result.push(str.slice(start,str.length-1));
+        } else {
+            result.push(str.slice(start,str.length));
+        }
+
+        console.log("All Substrings - " + result);
+
+
+        result.forEach((item)=> {
+            if(item.length>long) {
+                long = item.length;
+                longestSubStr = item;
+            }
+        })
+        console.log("The length of the longest substring is -- "+ long);
+        console.log("The longest substring is -- "+ longestSubStr);
+    }
+
+    findLongSubstr("abcbeastsefsricbd");
+}
+
+*/
+
+{
+    function findLongSubstr(str) {
+        let long=0, start=1,compare = {};
+
+        for(var i=0;i<str.length;i++) {
+            if(compare[str[i]]) {               
+               long = Math.max(long, start)
+               compare = {};
+               compare[str[i]] = 1;
+               start = 1;
+            }else{
+                start++;
+                compare[str[i]] = 1; 
+            } 
+        }
+        return Math.max(long, start);
+
+        }
+
+    findLongSubstr("abcbeastsefsricbd");
+}
+
+

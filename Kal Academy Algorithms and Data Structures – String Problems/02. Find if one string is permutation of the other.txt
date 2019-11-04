@@ -1,0 +1,31 @@
+{
+    function strPerm(str1, str2) {
+        let str1Len = str1.length, str2Len = str2.length;
+        if(str1Len !== str2Len) {
+            return false;
+        }
+
+        let strTable = [];
+
+        for(let i=0;i<str1Len;i++) {
+            if(strTable[str1[i]]) {
+                strTable[str1[i]] +=1; 
+            } else {
+                strTable[str1[i]] = 1;
+            }
+        }
+
+        for(let i=0;i<str2Len;i++) {
+            if(strTable[str2[i]]) {
+                strTable[str2[i]] -=1; 
+            } else {
+                return false;
+            }
+        }
+
+
+        return true;
+    }
+
+    strPerm('helqow','hqelow');
+}

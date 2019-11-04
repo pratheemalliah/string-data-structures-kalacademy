@@ -1,0 +1,21 @@
+{
+    function convertNumToRoman(str) {
+
+        let romanNumeral={"M":1000,"CM":900,"D":500,"CD":400,"C":100,
+        "L":50,"X":10,"V":5,"I":1};
+
+        let len=str.length, num = romanNumeral[str[len-1]];
+
+         for(let i=len-2;i>=0;i--) {
+             if(romanNumeral[str[i]]>=romanNumeral[str[i+1]]) {
+                 num+=romanNumeral[str[i]];
+             } else {
+                 num-=romanNumeral[str[i]];
+             }
+         }
+
+        return num;
+
+    }
+    convertNumToRoman('MVIII');
+}
